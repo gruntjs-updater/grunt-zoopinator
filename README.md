@@ -85,37 +85,36 @@ Here is a sample Gruntfile using grunt-zoopinator.  The task has two targets - d
 directory and then use the prod directory as a git repo to deploy your site. The watch task will keep the dev directory up to
 date after any file change.
 
-```js
-module.exports = function(grunt) {
+    module.exports = function(grunt) {
 
-  // Add our custom tasks.
-  grunt.loadNpmTasks('grunt-zoopinator');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  
-  // Project configuration.
-  grunt.initConfig({
-    zoopinator: {
-      options: {
-        verbose: false
-      },
-      dev: {
-        src: 'site-templates/',
-        dest: '../dev/site/'
-      },
-      prod: {
-        src: 'site-templates/',
-        dest: '../prod/site/'
-      }
-    },
-    watch: {
-      files: ['site-templates/**/*.*'],
-      tasks: ['zoopinator:dev']
-    }
-  });
+      // Add our custom tasks.
+      grunt.loadNpmTasks('grunt-zoopinator');
+      grunt.loadNpmTasks('grunt-contrib-watch');
+      
+      // Project configuration.
+      grunt.initConfig({
+        zoopinator: {
+          options: {
+            verbose: false
+          },
+          dev: {
+            src: 'site-templates/',
+            dest: '../dev/site/'
+          },
+          prod: {
+            src: 'site-templates/',
+            dest: '../prod/site/'
+          }
+        },
+        watch: {
+          files: ['site-templates/**/*.*'],
+          tasks: ['zoopinator:dev']
+        }
+      });
 
-  // Default task.
-  grunt.registerTask('default', ['zoopinator:dev']);
-};```
+      // Default task.
+      grunt.registerTask('default', ['zoopinator:dev']);
+    };
         
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
