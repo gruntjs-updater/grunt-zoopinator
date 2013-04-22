@@ -37,51 +37,86 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.verbose
+Type: `Boolean`
+Default value: `false`
+
+A boolean value that controls the amount of text displayed while running zoopinator
+
+#### options.ignoreErrors
+Type: `Boolean`
+Default value: `true`
+
+A boolean value that controls if zoopinator will abort on the first error
+
+#### options.autoEscape
+Type: `Boolean`
+Default value: `true`
+
+A boolean value that controls if zoopinator will auto escape output
+
+#### options.encoding
 Type: `String`
-Default value: `',  '`
+Default value: `utf8`
 
-A string value that is used to do something with whatever.
+A string value that sets the encoding used when reading in template files
 
-#### options.punctuation
+#### options.tzOffset
+Type: `Integer`
+Default value: `0`
+
+The timezone offset that SWIG uses for data calculations
+
+#### options.sourceRoot
 Type: `String`
-Default value: `'.'`
+Default value: ``
 
-A string value that is used to do something else with whatever else.
+A string value that specifies an alernate root for the SWIG engine to use as the root when resovling template paths
+
+#### options.force
+Type: `Boolean`
+Default value: `false`
+
+A boolean value that if true will override the confirmation when creating files outside of the dest folder
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+Here is a sample Gruntfile using grunt-zoopinator.  The task has two targets - dev and prod enabling you to test in the dev
+directory and then use the prod folder as a git repo to deploy your site. The watch task will keep the dev directory up to
+date after any file change.
 
 ```js
-grunt.initConfig({
-  zoopinator: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
+module.exports = function(grunt) {
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  zoopinator: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
+  // Add our custom tasks.
+  grunt.loadNpmTasks('grunt-zoopinator');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  
+  // Project configuration.
+  grunt.initConfig({
+    zoopinator: {
+      options: {
+        verbose: false
+      },
+      dev: {
+        src: 'site-templates/',
+        dest: '../dev/site/'
+      },
+      prod: {
+        src: 'site-templates/',
+        dest: '../prod/site/'
+      }
     },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
+    watch: {
+      files: ['site-templates/**/*.*'],
+      tasks: ['zoopinator:dev']
+    }
+  });
 
+  // Default task.
+  grunt.registerTask('default', ['zoopinator:dev']);
+};
+        
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
