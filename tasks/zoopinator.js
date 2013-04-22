@@ -1,5 +1,5 @@
 /*
- * zoopbake
+ * grunt-zoopinator
  * https://github.com/vagrant/gruntplugin
  *
  * Copyright (c) 2013 Zoopdoop, LLC
@@ -10,12 +10,12 @@
 
 module.exports = function(grunt) {
 
-  var zoopbake = require('zoopbake/lib/zoopbake.js').zoopbake;
+  var zoopinator = require('zoopinator/lib/zoopinator.js').zoopinator;
 
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('zoopbake', 'Your task description goes here.', function() {
+  grunt.registerMultiTask('zoopinator', 'Static site generation', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       verbose: false,
@@ -46,10 +46,10 @@ module.exports = function(grunt) {
       return false;
     }    
     
-    // let grunt know that zoopbake is async
+    // let grunt know that zoopinator is async
     done = this.async();
     
-    return zoopbake(this.files[0].src[0], this.files[0].dest, options, function (err, success) {
+    return zoopinator(this.files[0].src[0], this.files[0].dest, options, function (err, success) {
       done();
     });
   });

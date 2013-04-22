@@ -1,6 +1,6 @@
 /*
- * zoopbake
- * https://github.com/vagrant/gruntplugin
+ * grunt-zoopinator
+ * https://github.com/zoopdoop/grunt-zoopinator
  *
  * Copyright (c) 2013 Zoopdoop, LLC
  * Licensed under the MIT license.

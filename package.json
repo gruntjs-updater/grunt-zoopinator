@@ -1,31 +1,32 @@
 {
-  "name": "zoopbake",
-  "description": "Static site baker",
+  "name": "grunt-zoopinator",
   "version": "0.1.0",
-  "homepage": "https://github.com/vagrant/gruntplugin",
-  "author": {
-    "name": "Zoopdoop, LLC",
-    "email": "doug@zoopdoop.com"
-  },
+  "author": "Doug Martin <doug@zoopdoop.com>",
+  "description": "Grunt plugin for Zoopinator",
+  "homepage": "https://github.com/zoopdoop/grunt-zoopinator",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vagrant/gruntplugin.git"
+    "url": "git://github.com/zoopdoop/grunt-zoopinator.git"
   },
   "bugs": {
-    "url": "https://github.com/vagrant/gruntplugin/issues"
+    "url": "https://github.com/zoopdoop/grunt-zoopinator/issues",
+    "email" : "doug@zoopdoop.com"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/vagrant/gruntplugin/blob/master/LICENSE-MIT"
+      "url": "https://github.com/zoopdoop/grunt-zoopinator/blob/master/LICENSE"
     }
   ],
   "main": "Gruntfile.js",
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">=0.8.0"
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "dependencies": {
+    "zoopinator": "~0.1.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",
@@ -35,6 +36,7 @@
     "grunt": "~0.4.1"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "zoopinator"
   ]
 }
