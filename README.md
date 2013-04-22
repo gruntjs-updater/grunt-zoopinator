@@ -82,7 +82,7 @@ A boolean value that if true will override the confirmation when creating files 
 ### Usage Examples
 
 Here is a sample Gruntfile using grunt-zoopinator.  The task has two targets - dev and prod enabling you to test in the dev
-directory and then use the prod folder as a git repo to deploy your site. The watch task will keep the dev directory up to
+directory and then use the prod directory as a git repo to deploy your site. The watch task will keep the dev directory up to
 date after any file change.
 
 ```js
@@ -115,7 +115,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['zoopinator:dev']);
-};
+};```
         
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
