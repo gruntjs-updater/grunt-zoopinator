@@ -10,7 +10,7 @@
   },
   "bugs": {
     "url": "https://github.com/zoopdoop/grunt-zoopinator/issues",
-    "email" : "doug@zoopdoop.com"
+    "email": "doug@zoopdoop.com"
   },
   "licenses": [
     {
@@ -33,7 +33,7 @@
     "grunt": "~0.4.1"
   },
   "peerDependencies": {
-    "grunt": "~0.4.1"
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "gruntplugin",
